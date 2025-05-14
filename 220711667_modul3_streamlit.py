@@ -32,9 +32,9 @@ os.makedirs(nltk_data_dir, exist_ok=True)
 
 # Download stopwords if not already downloaded
 try:
-    nltk.data.find(r'nltk_data\corpora\stopwords')
+    nltk.data.find(r'nltk_data/corpora/stopwords')
 except LookupError:
-    nltk.download(r'nltk_data\corpora\stopwords', download_dir=nltk_data_dir)
+    nltk.download(r'nltk_data/corpora/stopwords', download_dir=nltk_data_dir)
 
 # Load the SpaCy Indonesian model
 try:
@@ -70,7 +70,7 @@ def enhanced_tokenizer(text):
         stop_words = set(stopwords.words('indonesian'))
     except:
         import nltk
-        nltk.download(r'nltk_data\corpora\stopwords', download_dir=nltk_data_dir)
+        nltk.download(r'nltk_data/corpora/stopwords', download_dir=nltk_data_dir)
         stop_words = set(stopwords.words('indonesian'))
 
     tokens = custom_tokenizer(text)
@@ -170,7 +170,7 @@ analysis_option = st.sidebar.selectbox(
 @st.cache_data
 def load_data():
     try:
-        df = pd.read_csv(r'D:\SURYA\UAJY\Semester 6\Pengolahan Bahasa Alami\Pertemuan 10 Praktek Text Summarization\Text_Summarization_Similarity_Clustering\220711667_Modul3\train_preprocess.csv')
+        df = pd.read_csv(r'train_preprocess.csv')
         return df
     except:
         st.error(
